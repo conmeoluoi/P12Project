@@ -10,7 +10,7 @@ namespace P12Project.Request1Module
     {
         public static void Main()
         {
-
+            Console.WriteLine("Request 1 main");
         }
     }
 }
