@@ -8,7 +8,7 @@ namespace P12Project.Request5Module
 {
     internal class Request5
     {
-        public static void Main()
+        public static void SubMain()
         {
 
         }

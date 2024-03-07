@@ -8,7 +8,7 @@ namespace P12Project.Request4Module
 {
     internal class Request4
     {
-        public static void Main()
+        public static void SubMain()
         {
 
         }
