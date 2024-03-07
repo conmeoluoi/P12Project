@@ -8,7 +8,7 @@ namespace P12Project.Request3Module
 {
     internal class Request3
     {
-        public static void Main()
+        public static void SubMain()
         {
 
         }

@@ -8,7 +8,7 @@ namespace P12Project.Request1Module
 {
     static internal class Request1
     {
-        public static void Main()
+        public static void SubMain()
         {
             Console.WriteLine("Request 1 main");
         }

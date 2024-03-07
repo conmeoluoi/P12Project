@@ -10,7 +10,7 @@ namespace P12Project
     {
         static void Main(string[] args)
         {
-            Request1.Main();
+            Request2.SubMain();
         }
     }
 }
