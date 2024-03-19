@@ -8,11 +8,11 @@ namespace P12Project.Common
 {
     internal class AdjacencyList
     {
-        public int n;
-        public int m;
-        public int[,] data;
+        public int n; // number of vertices 
+        public int m; // number of edges
+        public int[,] data; // adjacency matrix
+        public List<int>[] adjList; 
 
-        
         public bool ReadAdjacencyList(string filename)
         {
             string path = System.IO.Directory.GetCurrentDirectory() + filename;
@@ -65,5 +65,75 @@ namespace P12Project.Common
             result.n = n;
             return result;
         }
-    }
+
+        public void GetAdjList ()
+        {
+            adjList = new List<int>[n];
+            for (int i = 0; i < n; i++)
+            {
+                adjList[i] = new List<int>();
+                for (int j = 1, count = 0; count < data[i, 0]; j += 2, count++)
+                {
+                    adjList[i].Add(data[i, j]);
+                }
+            }
+        }
+
+        public void addEdge(int u, int v)
+        {
+            adjList[u].Add(v);
+            adjList[v].Add(u);
+        }
+
+        public void removeEdge(int u, int v)
+        {
+            adjList[u].Remove(v);
+            adjList[v].Remove(u);
+        }
+
+        public int DFSCount(int v, bool[] isVisited)
+            {
+                isVisited[v] = true;
+                int count = 1;
+                foreach (int i in adjList[v])
+                {
+                    if (!isVisited[i])
+                    {
+                        count += DFSCount(i, isVisited);
+                    }
+                }
+                return count;
+            }
+
+        bool isValidNextEdge(int u, int v)
+        {
+            if (adjList[u].Count == 1)
+            {
+                return true;
+            }
+
+            bool[] isVisited = new bool[n];
+            int count1 = DFSCount(u, isVisited);
+            removeEdge(u, v);
+            isVisited = new bool[n];
+            int count2 = DFSCount(u, isVisited);
+            addEdge(u, v);
+            return count1 > count2 ? false : true;
+        }
+
+        public void printEulerUtil(int u)
+        {
+            for (int i = 0; i < adjList[u].Count; i++)
+            {
+                int v = adjList[u][i];
+                if (isValidNextEdge(u, v))
+                {
+                    Console.Write($"{u} - {v} ");
+                    removeEdge(u, v);
+                    printEulerUtil(v);
+                }
+            }
+        }
+
+}
 }
