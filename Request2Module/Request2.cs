@@ -9,14 +9,14 @@ namespace P12Project.Request2Module
 {
     internal class Request2
     {
-        public static void SubMain()
-        {
-            AdjacencyList adjacencyList = new AdjacencyList();
-            adjacencyList.ReadAdjacencyList("\\Data\\GraphData1.txt");
-            adjacencyList.ShowAdjacencyList();
+        //public static void SubMain()
+        //{
+        //    AdjacencyList adjacencyList = new AdjacencyList();
+        //    adjacencyList.ReadAdjacencyList("\\Data\\GraphData1.txt");
+        //    adjacencyList.ShowAdjacencyList();
 
-            AdjacencyMatrix adjacencyMatrix = adjacencyList.ConvertToAdjacencyMatrix();
-            adjacencyMatrix.ShowAdjacencyMatrix();
-        }
+        //    AdjacencyMatrix adjacencyMatrix = adjacencyList.ConvertToAdjacencyMatrix();
+        //    adjacencyMatrix.ShowAdjacencyMatrix();
+        //}
     }
 }
